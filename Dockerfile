@@ -1,7 +1,9 @@
-FROM concourse/buildroot:git
+FROM concourse/static-golang
 
-ADD assets/ /opt/resource/
+ADD scripts/local /go/local
 
-ADD test/ /opt/resource-tests/
-RUN /opt/resource-tests/all.sh && \
-  rm -rf /tmp/*
+RUN mkdir -p src/github.com/concourse && \
+    cd src/github.com/concourse && \
+    git clone https://github.com/troyready/semver-resource.git
+
+CMD ["/bin/bash", "/go/local"]

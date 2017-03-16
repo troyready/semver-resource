@@ -59,6 +59,8 @@ the bucket.
 
 * `disable_ssl`: *Optional.* Disable SSL for the endpoint, useful for S3 compatible providers without SSL.
 
+* `non_anonymous`: *Optional.* Disable anonymous S3 authentication, allowing authentication to fallback to temporary credentials when running on an EC2 instance.
+
 ### `swift` Driver
 
 The `swift` driver works by modifying a file in a container.
